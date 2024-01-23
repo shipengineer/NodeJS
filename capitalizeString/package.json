@@ -1,0 +1,23 @@
+{
+  "name": "ed-project-capitalizer",
+  "version": "1.0.0",
+  "description": "library to capitalize first letter in string",
+  "main": "code.js",
+  "scripts": {
+    "test": "cz test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shipengineer/capitalizer.git"
+  },
+  "keywords": [
+    "string",
+    "capitalize"
+  ],
+  "author": "mav-design",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shipengineer/capitalizer/issues"
+  },
+  "homepage": "https://github.com/shipengineer/capitalizer#readme"
+}
