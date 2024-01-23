@@ -1,37 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page not found</title>
-  </head>
-  <body>
-    <h1 style="margin-left: auto; margin-right: auto">Страница потерялась</h1>
 
-    <a href="/">Перейти на главную</a>
-  </body>
-  <script>
-    async function getMetrics() {
-      const responce = await fetch("http://127.0.0.1:3000/api/metrics");
-      const data = await responce.json();
-      return data;
-    }
-    async function sendData(url, data) {
-      const responce = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      return responce.json();
-    }
-    async function setMetrics() {
-      const data = await getMetrics();
-      document.body.insertAdjacentHTML(
-        "afterbegin",
-        `<span>Вы ловили ошибки уже ${++data.error} раз<br> Всего прыжков :${++data.overAll} раз</span>`
-      );
-      sendData("http://127.0.0.1:3000/api/metrics-write", data);
-    }
-    setMetrics();
-  </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found</title>
+</head>
+
+<body>
+  <h1 style="margin-left: auto; margin-right: auto">Страница потерялась</h1>
+
+  <a href="/">Перейти на главную</a>
+</body>
+<script>
+  function getCookie(name) {
+    var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+  document.body.insertAdjacentHTML('beforeBegin', `<span> Вы читали ошибку ${getCookie('error')} раз, на всех страницах вы были ${getCookie('overAll')} </span>`)
+
+</script>
+
 </html>

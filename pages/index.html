@@ -1,38 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main page</title>
-  </head>
 
-  <body>
-    <h1 style="margin-left: auto; margin-right: auto">Вы на Главной</h1>
-    <a href="/about">Почитать О Нас</a>
-  </body>
-  <script>
-    async function getMetrics() {
-      const responce = await fetch("http://127.0.0.1:3000/api/metrics");
-      const data = await responce.json();
-      return data;
-    }
-    async function sendData(url, data) {
-      const responce = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      console.log("запрос отправлен");
-      return responce.json();
-    }
-    async function setMetrics() {
-      const data = await getMetrics();
-      document.body.insertAdjacentHTML(
-        "afterbegin",
-        `<span>Вы на главной уже ${++data.main} раз<br> Всего прыжков :${++data.overAll} раз</span>`
-      );
-      sendData("http://127.0.0.1:3000/api/metrics-write", data);
-    }
-    setMetrics();
-  </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main page</title>
+</head>
+
+<body>
+  <h1 style="margin-left: auto; margin-right: auto">Вы на Главной</h1>
+  <a href="/about">Почитать О Нас</a>
+
+</body>
+<script defer>
+  function getCookie(name) {
+    var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+  document.body.insertAdjacentHTML('beforeBegin', `<span> ВЫ были на главной ${getCookie('main')} раз, на всех страницах вы были ${getCookie('overAll')} </span>`)
+</script>
+
 </html>
