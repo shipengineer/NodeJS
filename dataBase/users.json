@@ -1,0 +1,13 @@
+[
+    {
+        "name":"whiskey",
+        "id":443233,
+        "password":"qwerty"
+
+    },
+    {
+        "name":"guest",
+        "id": 0,
+        "password":null
+    }
+]
