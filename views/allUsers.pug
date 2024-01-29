@@ -8,4 +8,4 @@ html(lang="en")
     span Выберите свою учетную запись
         ul
          each user in usersName 
-          a(href=`/users/${user.name}`)  #{user.name}
+          li: a(href=`/users/${user}`)  #{user}

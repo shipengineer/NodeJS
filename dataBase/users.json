@@ -1,13 +1,13 @@
-[
-    {
-        "name":"whiskey",
-        "id":443233,
-        "password":"qwerty"
+{
+  "whiskey": {
+    "id": 443233,
+    "name": "whiskey",
+    "password": "qwerty"
+  },
+  "guest": {
+    "id": 0,
+    "name": "guest",
 
-    },
-    {
-        "name":"guest",
-        "id": 0,
-        "password":null
-    }
-]
+    "password": null
+  }
+}

@@ -7,9 +7,21 @@ html(lang="en")
     body 
 
     h1 #{userName} 
-    span Подтвердите личность 
-    | Пароль:
-     input(type="text") 
-    if id==443233
-        h1 You are the guset
+    if login
+     h1 You are the #{userName}
+     span у вас на счету
+     
+     p #{userMoney} Долларсов
+     form(action="/change/"+userName,method="post")
+      p сколько долларсов хотите на счету
+      p: input(type="text", name="money") 
+      button(type="submit") Добавить
+    else 
+     form(action="/auth/"+userName, method="post") 
+      p Подтвердите личность 
+      p Пароль:
+      p: input(type="text" name ="psw")
+      button(type="submit")  Подтвердить
+      p: a(href="/") другой пользователь
+     
     
